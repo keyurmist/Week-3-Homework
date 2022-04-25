@@ -1,65 +1,81 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var number = ["0","1","2","3","4","5","6","7","8","9"];
-var upper = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-var lower = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-var special = ["!","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~"];
+var number = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+var upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+var lower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var special = ['@', '%', '+', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
 
-function question() {
+// Created function to ask user which options and made conditional statements to ensure minimum option requirements were met.
+function questions() {
   var isValid = false;
   do {
-    var pwdLength = parseInt(prompt("Please choose a length between 8 and 128 characters"));
-    var pwdNumber = confirm("Would you like to include numbers?");
-    var pwdLower = confirm("Would you like to include lowercase letters?");
-    var pwdUpper = confirm("Would you like to include uppercase letters?");
-    var pwdSpecial = confirm("Would you like to include special characters?");
-    var responses = { 
-      pwdLength: pwdLength,
-      pwdLower: pwdLower,
+    var length = parseInt(prompt("Please choose a password length between 8 and 128 characters"));
+    var pwdNumber = confirm("Would you like your password to include numbers?");
+    var pwdLower = confirm("Would you like your password to include lower case letters?");
+    var pwdUpper = confirm("Would you like your password to include upper case letters?");
+    var pwdSpecial = confirm("Would you like your password to include special characters?");
+    var responses = {
+
+      length: length,
       pwdNumber: pwdNumber,
+      pwdLower: pwdLower,
       pwdUpper: pwdUpper,
       pwdSpecial: pwdSpecial
-    }
-    if ((pwdLength < 8)||(pwdLength > 128))
-    alert ("Choose a number between 8 and 128");
-    else if ((!pwdNumber)&&(!pwdLower)&&(!pwdUpper)&&(!pwdSpecial))
-    alert ("You must choose at least one option");
-    else isValid = true;
+
+    } 
+    if((length < 8)||(length > 128))
+    alert("Choose number between 8 and 128");
+
+    else if((!pwdNumber)&&(!pwdLower)&&(!pwdUpper)&&(!pwdSpecial))
+    alert("Must choose at least one type.");
     
-  } while (!isValid);
-    return responses;
+    else
+    isValid = true;
+
+  } while(!isValid);
+  return responses;
+}
+// This function joins all the user responses and then creates the result - a strong password.
+function generatePassword() {
+
+  var options = questions();
+  var combo = [];
+  var finalPassword = "";
+
+
+
+  if (options.pwdNumber) {
+    for (var i of number)
+      combo.push(i);
   }
 
-  function generatePassword() {
-    var options = question();
-    var combo = [];
-    var securePassword = "";
-
-    if (options.pwdLower) {
-      for (var i of lower)
-        combo.push(i);
-    }
-    if (options.pwdNumber) {
-      for (var i of number)
-        combo.push(i);
-    }
-    if (options.pwdUpper) {
-      for (var i of upper)
-        combo.push(i);
-    }
-    if (options.pwdSpecial) {
-      for (var i of special)
-        combo.push(i);
-    }
-
-    for (var i = 0; i < options.pwdLength; i++) {
-      securePassword += combo[Math.floor(Math.random()*combo.pwdLength)];
-    }
-    return securePassword;
-  
-
+  if (options.pwdLower) {
+    for (var i of lower)
+      combo.push(i);
   }
+
+  if (options.pwdUpper) {
+    for (var i of upper)
+      combo.push(i);
+  }
+
+  if (options.pwdSpecial) {
+    for (var i of special)
+      combo.push(i);
+  }
+
+
+
+
+  for (var i = 0; i < options.length; i++) {
+    finalPassword += combo[Math.floor(Math.random() * combo.length)];
+    
+  }
+  console.log(finalPassword);
+
+  return finalPassword;
+}
 
 
 
