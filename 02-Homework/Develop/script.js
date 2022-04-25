@@ -10,7 +10,10 @@ function question() {
   var isValid = false;
   do {
     var pwdlength = parseInt(prompt("Please choose a length between 8 and 128 characters"));
-    var pwdNumber = confirm("Do you want to include numbers?");
+    var pwdNumber = confirm("Would you like to include numbers?");
+    var pwdLower = confirm("Would you like to include lowercase letters?");
+    var pwdUpper = confirm("Would you like to include uppercase letters?");
+    var pwdSpecial = confirm("Would you like to include special characters?");
     
     
   } while (!isValid);
