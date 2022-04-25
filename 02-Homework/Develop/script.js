@@ -6,7 +6,15 @@ var upper = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
 var lower = ["abcdefghijklmnopqrstuvwxyz"];
 var special = ["!#$%&'()*+,-./:;<=>?@\"[]^_`{|}~"];
 
-
+function question() {
+  var isValid = false;
+  do {
+    var pwdlength = parseInt(prompt("Please choose a length between 8 and 128 characters"));
+    
+    
+  } while (!isValid);
+  return responses;
+  }
 
 
 
