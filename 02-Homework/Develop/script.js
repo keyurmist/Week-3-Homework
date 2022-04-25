@@ -19,16 +19,40 @@ function question() {
       pwdLower: pwdLower,
       pwdNumber: pwdNumber,
       pwdUpper: pwdUpper,
-      pwdSpecial: pwdSpecial,
+      pwdSpecial: pwdSpecial
     }
     if ((pwdLength < 8) || (pwdLength > 128))
     alert ("Choose a number between 8 and 128");
-    else if ((!pwdNumber)&&(!pwdLower)&&(!pwdUpper)&&(!pwdSpecial));
+    else if ((!pwdNumber)&&(!pwdLower)&&(!pwdUpper)&&(!pwdSpecial))
     alert ("You must choose at least one option");
-    isValid = true;
+    else isValid = true;
     
   } while (!isValid);
     return responses;
+  }
+
+  function generatePassword() {
+    var options = question();
+    var combo = [];
+    var securePassword = "";
+
+    if (options.pwdLower) {
+      for (var i of lower)
+        combo.push(i);
+    }
+    if (options.pwdNumber) {
+      for (var i of number)
+        combo.push(i);
+    }
+    if (options.pwdUpper) {
+      for (var i of upper)
+        combo.push(i);
+    }
+    if (options.pwdSpecial) {
+      for (var i of special)
+        combo.push(i);
+    }
+
   }
 
 
