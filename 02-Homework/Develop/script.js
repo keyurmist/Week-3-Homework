@@ -9,15 +9,26 @@ var special = ["!#$%&'()*+,-./:;<=>?@\"[]^_`{|}~"];
 function question() {
   var isValid = false;
   do {
-    var pwdlength = parseInt(prompt("Please choose a length between 8 and 128 characters"));
+    var pwdLength = parseInt(prompt("Please choose a length between 8 and 128 characters"));
     var pwdNumber = confirm("Would you like to include numbers?");
     var pwdLower = confirm("Would you like to include lowercase letters?");
     var pwdUpper = confirm("Would you like to include uppercase letters?");
     var pwdSpecial = confirm("Would you like to include special characters?");
-    
+    var responses = { 
+      pwdLength: pwdLength,
+      pwdLower: pwdLower,
+      pwdNumber: pwdNumber,
+      pwdUpper: pwdUpper,
+      pwdSpecial: pwdSpecial,
+    }
+    if ((pwdLength < 8) || (pwdLength > 128))
+    alert ("Choose a number between 8 and 128");
+    else if ((!pwdNumber)&&(!pwdLower)&&(!pwdUpper)&&(!pwdSpecial));
+    alert ("You must choose at least one option");
+    isValid = true;
     
   } while (!isValid);
-  return responses;
+    return responses;
   }
 
 
