@@ -10,6 +10,7 @@ function question() {
   var isValid = false;
   do {
     var pwdlength = parseInt(prompt("Please choose a length between 8 and 128 characters"));
+    var pwdNumber = confirm("Do you want to include numbers?");
     
     
   } while (!isValid);
