@@ -53,6 +53,10 @@ function question() {
         combo.push(i);
     }
 
+    for (var i = 0; i < options.pwdLength; i++) {
+      securePassword += combo[Math.floor(Math.random()*combo.pwdLength)];
+    }
+
   }
 
 
