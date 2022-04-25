@@ -21,7 +21,7 @@ function question() {
       pwdUpper: pwdUpper,
       pwdSpecial: pwdSpecial
     }
-    if ((pwdLength < 8) || (pwdLength > 128))
+    if ((pwdLength < 8)||(pwdLength > 128))
     alert ("Choose a number between 8 and 128");
     else if ((!pwdNumber)&&(!pwdLower)&&(!pwdUpper)&&(!pwdSpecial))
     alert ("You must choose at least one option");
