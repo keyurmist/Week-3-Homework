@@ -6,17 +6,17 @@ var upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N
 var lower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var special = ['@', '%', '+', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
 
-// Created function to ask user which options and made conditional statements to ensure minimum option requirements were met.
+// Function to show prompts and confirm boxes for the user
 function questions() {
   var isValid = false;
-  do {
+  do { //ParseInt to convert letters to integers
     var length = parseInt(prompt("Please choose a password length between 8 and 128 characters"));
     var pwdNumber = confirm("Would you like your password to include numbers?");
     var pwdLower = confirm("Would you like your password to include lower case letters?");
     var pwdUpper = confirm("Would you like your password to include upper case letters?");
     var pwdSpecial = confirm("Would you like your password to include special characters?");
     var responses = {
-
+      //List of all input values
       length: length,
       pwdNumber: pwdNumber,
       pwdLower: pwdLower,
@@ -25,7 +25,7 @@ function questions() {
 
     } 
     if((length < 8)||(length > 128))
-    alert("Choose number between 8 and 128");
+    alert("Please choose number between 8 and 128");//Textbox to tell user to pick a valid number between 8 and 128 if an option outside is picked
 
     else if((!pwdNumber)&&(!pwdLower)&&(!pwdUpper)&&(!pwdSpecial))
     alert("Must choose at least one type.");
