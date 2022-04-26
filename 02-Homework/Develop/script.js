@@ -28,7 +28,7 @@ function questions() {
     alert("Please choose number between 8 and 128");//Textbox to tell user to pick a valid number between 8 and 128 if an option outside is picked
 
     else if((!pwdNumber)&&(!pwdLower)&&(!pwdUpper)&&(!pwdSpecial))
-    alert("Must choose at least one type.");
+    alert("Please choose at least one option");//If no option is picked, textbox tells user they must pick at least one.
     
     else
     isValid = true;
@@ -36,7 +36,7 @@ function questions() {
   } while(!isValid);
   return responses;
 }
-// This function joins all the user responses and then creates the result - a strong password.
+// A function to collect responses and thus create a password
 function generatePassword() {
 
   var options = questions();
@@ -69,7 +69,7 @@ function generatePassword() {
 
 
   for (var i = 0; i < options.length; i++) {
-    finalPassword += combo[Math.floor(Math.random() * combo.length)];
+    finalPassword += combo[Math.floor(Math.random() * combo.length)]; //Produce a password randomly given what is input
     
   }
   console.log(finalPassword);
